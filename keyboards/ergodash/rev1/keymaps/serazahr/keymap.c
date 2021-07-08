@@ -2,8 +2,8 @@
 
 
 #define _QWERTY 0
-#define _LOWER 1
-#define _RAISE 2
+#define _ALTGR 1
+#define _LRPAD 2
 #define _FUNCTION 3
 #define _SUPER 4
 #define _ADJUST 16
@@ -24,11 +24,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
   [_QWERTY] = LAYOUT(
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_LBRC,                        KC_RBRC, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_PSCR, \
-    KC_GRV,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_MINS,                        KC_EQL , KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
-    KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_DEL ,                        KC_BSPC, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC ,                        KC_ENT , KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, \
-    KC_LCTL, KC_LGUI, KC_LALT, LALT(KC_GRV),     MO(1),   KC_SPC ,KC_DEL,         KC_BSPC,KC_ENT , MO(2),            KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+    KC_ESC,       KC_1,    KC_2,    KC_3,    KC_4,    KC_5,      KC_MINS,                  KC_EQL, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,     KC_DEL, \
+    KC_TAB,       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_LBRC,              	  KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS, \
+    RALT(KC_GRV), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,RALT(KC_QUOT),           RALT(KC_QUOT), KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,    KC_RCTL, \
+    KC_LSPO,      KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_DEL,                 KC_BSPC, KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,    KC_RSPC, \
+    MO(2),     KC_LGUI,   MO(3), KC_LALT,          KC_LCTL,      KC_BSPC, KC_SPC,  KC_SPC, KC_ENT, LT(1,KC_RALT), KC_LEFT,   KC_UP, KC_DOWN,    KC_RGHT  \
   ),
 
   /* Lower
@@ -44,12 +44,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Ctrl |  GUI |  ALt | EISU |||||||| Lower| Space|  Del |||||||| Bksp | Enter| Raise|||||||| Home |PageDn|PageUp|  End |
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
-  [_LOWER] = LAYOUT(
-    KC_F11,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_LCBR,                        KC_RCBR, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F12,  \
-    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_UNDS,                        KC_PLUS, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE, \
-    KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_DEL ,                        KC_BSPC, KC_H,    KC_J,    KC_K,    KC_L,    KC_COLN, KC_DQT , \
-    KC_LSFT, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SPC ,                        KC_ENT , KC_N,    KC_M,    KC_LT,   KC_GT,   KC_QUES, KC_RSFT, \
-    KC_LCTL, KC_LGUI, KC_LALT, LALT(KC_GRV),     MO(1),   KC_SPC ,KC_DEL,         KC_BSPC,KC_ENT , MO(3),            KC_HOME, KC_PGDN, KC_PGUP, KC_END   \
+  [_ALTGR] = LAYOUT(
+    RALT(KC_ESC),    RALT(KC_1), RALT(KC_2),   RALT(KC_3),RALT(KC_4),RALT(KC_5),RALT(KC_MINS),                          RALT(KC_EQL),RALT(KC_6),RALT(KC_7),   RALT(KC_8),  RALT(KC_9),   RALT(KC_0), RALT(KC_DEL), \
+    RALT(KC_TAB),    RALT(KC_Q), RALT(KC_W),   RALT(KC_E),RALT(KC_R),RALT(KC_T),RALT(KC_LBRC),                         RALT(KC_RBRC),RALT(KC_Y),RALT(KC_U),   RALT(KC_I),  RALT(KC_O),   RALT(KC_P),RALT(KC_BSLS), \
+    KC_GRV,          RALT(KC_A), RALT(KC_S),   RALT(KC_D),RALT(KC_F),RALT(KC_G),      KC_QUOT,                               KC_QUOT,RALT(KC_H),RALT(KC_J),   RALT(KC_K),  RALT(KC_L),RALT(KC_SCLN),RALT(KC_RCTL), \
+    RALT(KC_LSPO),   RALT(KC_Z), RALT(KC_X),   RALT(KC_C),RALT(KC_V),RALT(KC_B), RALT(KC_DEL),                         RALT(KC_BSPC),RALT(KC_N),RALT(KC_M),RALT(KC_COMM),RALT(KC_DOT),RALT(KC_SLSH),RALT(KC_RSPC), \
+    KC_NO,        RALT(KC_LGUI),      KC_NO,RALT(KC_LALT),        RALT(KC_LCTL),RALT(KC_BSPC),RALT(KC_SPC),RALT(KC_SPC),RALT(KC_ENT),   _______,                 KC_HOME,     KC_PGUP,      KC_PGDN,       KC_END  \
   ),
 
   /* Raise
@@ -65,12 +65,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Ctrl |  GUI |  ALt | EISU |||||||| Lower| Space|  Del |||||||| Bksp | Enter| Raise|||||||| Home |PageDn|PageUp|  End |
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
-  [_RAISE] = LAYOUT(
-    KC_F11,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_LCBR,                        KC_RCBR, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F12,  \
-    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_UNDS,                        KC_PLUS, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE, \
-    KC_TAB,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_DEL ,                        KC_BSPC, KC_H,    KC_J,    KC_K,    KC_L,    KC_COLN, KC_DQT , \
-    KC_LSFT, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_SPC ,                        KC_ENT , KC_N,    KC_M,    KC_LT,   KC_GT,   KC_QUES, KC_RSFT, \
-    KC_LCTL, KC_LGUI, KC_LALT, LALT(KC_GRV),     MO(3),   KC_SPC ,KC_DEL,         KC_BSPC,KC_ENT , MO(2),            KC_HOME, KC_PGDN, KC_PGUP, KC_END   \
+  [_LRPAD] = LAYOUT(
+    KC_ESC,     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      KC_BSLS,                   KC_NO, KC_NO,    KC_NO,    KC_P7,    KC_P8,    KC_P9,    KC_PSLS, \
+    KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_RBRC,              	  KC_NO, KC_NO,    KC_NO,    KC_P4,    KC_P5,    KC_P6,    KC_PAST, \
+    KC_EQL,     KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,RALT(KC_QUOT),                   KC_NO, KC_NO,    KC_NO,     KC_1,    KC_P2,    KC_P3,    KC_PMNS, \
+    KC_RSPC,    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,       KC_DEL,                 KC_BSPC, KC_NO,    KC_NO,    KC_P0,  KC_PDOT,  KC_PENT,    KC_PPLS, \
+    MO(2),   KC_LGUI,   KC_ENT, KC_RALT,          KC_RCTL,      KC_BSPC, KC_SPC,  KC_SPC, KC_ENT, KC_NO,            KC_LEFT,    KC_UP,  KC_DOWN,    KC_RGHT  \
   ),
   
   /* Function
@@ -87,11 +87,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
   [_FUNCTION] = LAYOUT(
-    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______,          _______,_______,_______,       _______,_______, _______,          _______, _______, _______, _______  \
+    KC_VOLU, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5,KC_SLEP,                       KC_NO, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, \
+    KC_VOLD, KC_BRIU, RGB_TOG, RGB_MOD, RGB_VAD, RGB_VAI,KC_NO,                       KC_NO, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, KC_NO, KC_F12, \
+    KC_MUTE, KC_BRID, BL_TOGG, BL_BRTG, BL_DEC, BL_INC,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+    KC_NO, KC_NO, KC_MPRV, KC_MPLY, KC_MSTP, KC_MNXT,KC_NO,                       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, \
+    KC_CALC, KC_MYCM, MO(3), KC_APP,          KC_NO,KC_NO,KC_NO,       KC_NO,KC_NO, KC_NO,          KC_NO, MO(4), KC_NO, KC_NO  \
   ),
   
   /* Super
@@ -108,11 +108,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,----------------------------------------------------------------------------------------------------------------------.
    */
   [_SUPER] = LAYOUT(
+    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, RESET, \
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______,          _______,_______,_______,       _______,_______, _______,          _______, _______, _______, _______  \
+    _______, _______, _______, _______,          _______,_______,_______,       _______,_______, _______,          _______, MO(4), _______, _______  \
   ),
 
   /* Adjust
@@ -130,8 +130,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [_ADJUST] = LAYOUT(
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
-    _______, RESET  , RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI,_______,                       _______, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______, \
-    _______, _______, BL_TOGG, BL_BRTG, BL_INC , BL_DEC ,_______,                       _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______,          _______,_______,_______,       _______,_______, _______,          _______, _______, _______, _______  \
   )
